@@ -1,0 +1,87 @@
+.services-container {
+  text-align: center;
+  padding: 40px 20px;
+  padding-bottom: 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 40px;
+    font-size: 1.8em;
+
+    @media (max-width: 768px) {
+      font-size: 1.5em;
+    }
+  }
+
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+    .service-item {
+      display: flex;
+      width: calc(33.333% - 20px);
+      min-width: 280px;
+      max-width: 350px;
+      text-align: left;
+      align-items: flex-start;
+
+      @media (max-width: 992px) {
+        width: calc(50% - 15px);
+      }
+
+      @media (max-width: 768px) {
+        width: 100% !important;
+        max-width: 100%;
+      }
+
+      .service-icon {
+        margin-right: 15px;
+        padding: 10px;
+        flex-shrink: 0;
+
+        svg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .service-content {
+        flex-grow: 1;
+
+        h3 {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+
+          @media (max-width: 768px) {
+            font-size: 1.1em;
+          }
+        }
+
+        p {
+          font-size: 0.9em;
+          color: #555;
+          line-height: 1.4;
+
+          @media (max-width: 768px) {
+            font-size: 0.85em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.domestic_ground_section .logistics-container {
+  background-image: url(/src/components/service-items/images/domestic_ground_footer.png);
+}
+.project_logistic_section .services-grid .service-item {
+  width: 40% ;
+  max-width: inherit;
+}
+.project_logistic_section .logistics-container, .transportation_technology .logistics-container {
+  background-image: url(/src/components/service-items/images/transportation_technology_footer.png);
+}

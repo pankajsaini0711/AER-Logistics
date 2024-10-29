@@ -1,0 +1,109 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-logo {
+    img {
+      height: 40px;
+    }
+  }
+
+  .navbar-links .contact-btn{
+    padding: 8px;
+    width: 178px;
+    height: 32px;
+    background: #2C2C2C;
+    border: 1px solid #2C2C2C;
+    border-radius: 8px;
+    color: #ffffff;
+  }
+  .navbar-links {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    padding-right: 15%;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .navbar-buttons {
+    display: flex;
+
+    button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &.login-btn {
+        background-color: #0066cc;
+        color: white;
+      }
+
+      &.contact-btn {
+        background-color: white;
+        color: #0066cc;
+        border: 1px solid #0066cc;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 2px 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links, .navbar-buttons {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    &.mobile-menu-open {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .navbar-links, .navbar-buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+
+        li, button {
+          margin: 10px 0;
+        }
+      }
+
+      .navbar-buttons {
+        button {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

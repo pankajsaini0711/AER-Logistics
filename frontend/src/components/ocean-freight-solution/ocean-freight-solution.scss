@@ -1,0 +1,77 @@
+.service-list {
+    padding: 40px 20px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    @media (max-width: 768px) {
+      padding: 30px 15px;
+    }
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    border: 1px solid grey;
+    width: 100%;
+    // width: calc(50% - 15px);
+    box-sizing: border-box;
+  
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  
+    @media (max-width: 576px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  .icon-container {
+    margin-right: 20px;
+    flex-shrink: 0;
+  
+    @media (max-width: 576px) {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .service-icon {
+    font-size: 32px;
+    color: #3498db; // Example color
+  }
+  
+  .card-content {
+    flex-grow: 1;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-block: 10px;
+  
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  
+  .card-description {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  .ocean_freight_section .logistics-container {
+    background-image: url(/src/components/service-items/images/ocean_freight_footer.png);
+  }
