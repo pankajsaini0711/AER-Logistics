@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout/data/layout';
 import HomePage from './pages/homepage/homepage';
 import About from './pages/about/about';
@@ -21,34 +21,30 @@ import Technology from './pages/industries/technology';
 import HealthCare from './pages/industries/healtcare';
 const App: React.FC = () => {
   return (
-
+    <Router>
       <Routes>
         <Route path="/" element={<Layout />} >
-        <Route index element={<HomePage />} />
-        <Route path="about" element={<About />} />
-        <Route path="service/domestic-transportation" element ={<DomesticTransporation />} />
-        <Route path="service/ocean-freight" element ={<OceanFreight />} />
-        <Route path="service/air-freight" element ={<AirFreight />} />
-        <Route path="service/warehouse-management" element ={<WarehouseManagement />} />
-        <Route path="service/cold-chain-logistics" element ={<ColdChainLogistics />} />
-        <Route path="service/project-logistics" element ={<ProjectLogistics />} />
-        <Route path="service/transportation-technology" element ={<TransportationTechnology />} />
-        <Route path="industry/show-freight" element ={<ShowFreight />} />
-        <Route path="industry/aerospace-and-defence" element ={<AerospaceDefence />} />
-        <Route path="industry/automotive" element ={<Automotive />} />
-        <Route path="industry/consumer-goods" element ={<ConsumerGoods />} />
-        <Route path="industry/manufacturing" element ={<Manufacturing />} />
-        <Route path="industry/energy" element ={<Energy />} />
-        <Route path="industry/technology" element ={<Technology />} />
-        <Route path="industry/health-care" element ={<HealthCare />} />
-
-
-
-         </Route>
-         <Route path="*" element={<PageNotFound />} />
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<About />} />
+          <Route path="service/domestic-transportation" element={<DomesticTransporation />} />
+          <Route path="service/ocean-freight" element={<OceanFreight />} />
+          <Route path="service/air-freight" element={<AirFreight />} />
+          <Route path="service/warehouse-management" element={<WarehouseManagement />} />
+          <Route path="service/cold-chain-logistics" element={<ColdChainLogistics />} />
+          <Route path="service/project-logistics" element={<ProjectLogistics />} />
+          <Route path="service/transportation-technology" element={<TransportationTechnology />} />
+          <Route path="industry/show-freight" element={<ShowFreight />} />
+          <Route path="industry/aerospace-and-defence" element={<AerospaceDefence />} />
+          <Route path="industry/automotive" element={<Automotive />} />
+          <Route path="industry/consumer-goods" element={<ConsumerGoods />} />
+          <Route path="industry/manufacturing" element={<Manufacturing />} />
+          <Route path="industry/energy" element={<Energy />} />
+          <Route path="industry/technology" element={<Technology />} />
+          <Route path="industry/health-care" element={<HealthCare />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-  
+    </Router>
   );
 };
-
 export default App;
