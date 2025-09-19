@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './data/images/aer-nav-logo.png';
 import './nav-bar.scss';
@@ -6,6 +6,7 @@ import './nav-bar.scss';
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,13 +14,31 @@ const Navbar: React.FC = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsServicesDropdownOpen(false); // closes dropdown too
+    setIsServicesDropdownOpen(false);
   };
 
   const toggleServicesDropdown = (e: React.MouseEvent) => {
-    e.preventDefault(); // prevents jumping to #services
+    e.preventDefault();
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isServicesDropdownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isServicesDropdownOpen]);
 
   return (
     <nav className={`navbar ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
@@ -34,7 +53,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <ul className="navbar-links">
-        <li className="services-dropdown">
+        <li className="services-dropdown" ref={dropdownRef}>
           <a href="#services" onClick={toggleServicesDropdown}>SERVICES</a>
           {isServicesDropdownOpen && (
             <ul className="dropdown-menu">
