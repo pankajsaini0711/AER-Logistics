@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
 
-  // Close dropdown when clicking outside
+  // Close SERVICES dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -34,10 +34,7 @@ const Navbar: React.FC = () => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isServicesDropdownOpen]);
 
   return (
@@ -70,10 +67,16 @@ const Navbar: React.FC = () => {
         <li><Link to="/about" onClick={closeMobileMenu}>ABOUT US</Link></li>
         <li><Link to="/resources" onClick={closeMobileMenu}>LOCATION</Link></li>
         <li><Link to="/career" onClick={closeMobileMenu}>CAREER</Link></li>
-        <li><Link to="/contact" onClick={closeMobileMenu}><button className="contact-btn">Contact Us !</button></Link></li>
+        <li>
+          <Link to="/contact" onClick={closeMobileMenu}>
+            <button className="contact-btn">Contact Us !</button>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
 };
 
 export default Navbar;
+
+
